@@ -7,11 +7,33 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weekly Weather!</title>
 </head>
-<body>
+<body class="flex-column min-100-vh">
+    <header class="hero bg-dark">
+        <h1 class="title text-light">
+            Weather Dashboard
+        </h1>
+    </header>
+    <main class="flex-row justify-space-between">
+        <div class="flex-row justify-space-between">
+            <div class="card">
+                <h3 class="card-header text-uppercase">
+                    Search For Your City's Weather      
+                </h3>
+                <form id="weather-form" class="card-body">
+                    <label class="form-label" for="city">City Name</label>
+                    <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn-info">Get Weather!</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <h2 class="title">Showing Weather for: <span id="weather-search-city"></span></h2>
+        </div>
+    </main>
 
 
 
-    
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
