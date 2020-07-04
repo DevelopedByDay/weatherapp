@@ -40,5 +40,12 @@ function displayWeather(cityweather, searchTerm) {
     weatherContainerEl.textContent = "";
     citySearchTerm.textContent = searchTerm;
 
-    
+    if (cityweather.length === 0) {
+        weatherContainerEl.textContent = "No Weather information to be found.";
+        return;
+    }
+
+    for (var i=0; i < cityweather.lenght; i++) {
+        var 
+    }
 }

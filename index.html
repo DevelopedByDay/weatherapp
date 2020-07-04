@@ -9,26 +9,26 @@
 </head>
 <body class="flex-column min-100-vh">
     <header class="hero bg-dark">
-        <h1 class="title text-light">
+        <h1 class="title text-light text-center">
             Weather Dashboard
         </h1>
     </header>
-    <main class="flex-row justify-space-between">
-        <div class="flex-row justify-space-between">
+    <main class="row justify-space-between container col-12">
+        <div class="justify-space-between col-6 col-lg-6">
             <div class="card">
                 <h3 class="card-header text-uppercase">
                     Search For Your City's Weather      
                 </h3>
-                <form id="weather-form" class="card-body">
+                <form id="weather-form" class="card-body text-center">
                     <label class="form-label" for="city">City Name</label>
                     <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
                     <button type="submit" class="btn-info">Get Weather!</button>
                 </form>
             </div>
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-6 col-lg-6">
             <h2 class="title">Showing Weather for: <span id="weather-search-city"></span></h2>
-            <div id="weather-container" class="list-group"></div>
+            <div id="weather-container" class="list-group">
         </div>
     </main>
 
