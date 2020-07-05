@@ -3,12 +3,18 @@ var cityInputEl = document.querySelector("#cityname");
 var weatherContainerEl = document.querySelector("#weather-container");
 var citySearchTerm = document.querySelector("#weather-search-city");
 
+var cityList = [];
+
 function formSubmitHandler(event) {
     event.preventDefault();
 
     var cityname = cityInputEl.value.trim();
 
     if (cityname) {
+        cityList = localStorage.getItem("city")
+        cityList = cityList ? cityList.split(",") : [];
+        cityList.push(cityItem);
+        localStorage.setItem("city", cityList.toString());
         getToday(cityname);
         getWeather(cityname);
         cityInputEl.value = "";
@@ -59,6 +65,27 @@ function getWeather(city) {
 function displayToday(cityweather, searchTerm) {
     weatherContainerEl.textContent = "";
     citySearchTerm.textContent = searchTerm;
+
+    var weatherDay = cityweather.dt_txt;
+    var todayEl = document.createElement("div");
+    todayEl.classList = "card";
+
+    var weatherTemp = cityweather.main.temp;
+
+    var weatherCondition = cityweather.weather.main;
+    var weatherIcon = cityweather.weather.icon;
+
+    var todayObj = weatherDay + weatherTemp + weatherCondition + weatherIcon;
+    console.log(todayObj);
+    console.log(weatherCondition);
+    console.log(weatherTemp);
+
+
+    todayEl.appendChild(todayObj);
+
+    weatherContainerEl.appendChild(todayEl);
+
+
 }
 
 function displayWeather(cityweather, searchTerm) {
@@ -73,14 +100,14 @@ function displayWeather(cityweather, searchTerm) {
 
 
     for (var i=0; i < cityweather.lenght; i++) {
-        var weatherDay = cityweather[i].list.dt_txt;
+        var weatherDay = cityweather[i].dt_txt;
 
         var weatherEl = document.createElement("div");
         weatherEl.classList = "card";
         
-        var weatherTemp = cityweather[i].list.main;
+        var weatherTemp = cityweather[i].main;
 
-        var weatherCondition = cityweather[i].list.weather;
+        var weatherCondition = cityweather[i].weather;
 
         var weatherObj = weatherDay + weatherTemp + weatherCondition;
         console.log(weatherObj);
