@@ -13,7 +13,7 @@ function formSubmitHandler(event) {
     if (cityname) {
         cityList = localStorage.getItem("city")
         cityList = cityList ? cityList.split(",") : [];
-        cityList.push(cityItem);
+        cityList.push(cityname);
         localStorage.setItem("city", cityList.toString());
         getToday(cityname);
         getWeather(cityname);
