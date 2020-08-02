@@ -25,6 +25,7 @@ function formSubmitHandler(event) {
     }
 }
 
+// allows for generation of city list 
 function row(city) {
     var cityEl = document.createElement("li")
     cityEl.classList.add("list-group-item", "list-group-item-action");
@@ -39,8 +40,9 @@ function row(city) {
     pastEl.appendChild(cityEl);
 };
 
+// function for retrieving weather for today
 function getToday(city) {
-    var weather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=fe8d611a841b4f7219380686ae60e97a";
+    var weather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=fe8d611a841b4f7219380686ae60e97a&units=imperial";
 
     fetch(weather)
     .then(function(response) {
@@ -91,9 +93,9 @@ function getToday(city) {
         })
 }
 
-
+// 5 day forcast function
 function getWeather(city) {
-    var weather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city +  "&appid=fe8d611a841b4f7219380686ae60e97a";
+    var weather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city +  "&appid=fe8d611a841b4f7219380686ae60e97a&units=imperial";
 
 
     fetch(weather)
@@ -158,6 +160,7 @@ function getWeather(city) {
     })
 }
 
+// UV function for displaying in the today's forcast
 function getUV(lat, lon) {
     var weather = "http://api.openweathermap.org/data/2.5/uvi?appid=fe8d611a841b4f7219380686ae60e97a&lat=" + lat + "&lon=" + lon;
     fetch(weather)
